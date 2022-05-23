@@ -1,4 +1,4 @@
-# Title
+# rchart - a modern, free, extensible EHR for the world
 - description, pictures
 - what you can use it for
 - download
@@ -7,7 +7,8 @@
 ## Status
 
 # Features
-- vid overview
+- patient management, 
+- todo: add video here
 
 # Demo
 - live demo
@@ -15,10 +16,14 @@
 # Documentation
 
 # License
+GLP V3.
 
 # Installation
 
 # Tech Stack
+- Svelte
+- Tauri
+- PostgreSQL
 
 # Support
 
