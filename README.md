@@ -1,9 +1,10 @@
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 
+
 # rchart - a modern, free, extensible EHR for the world
 - description, pictures
 - what you can use it for
 - download
 - website
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 
 
 ## Values
 1. FOSS - Free and Open Source Software
