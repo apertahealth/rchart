@@ -1,18 +1,18 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 
 
 # rchart - a modern, free, extensible EHR for the world
-- description, pictures
-- what you can use it for
-- download
-- website
+**rchart** is a community developed electronic health record (EHR) that will always be free to use. You can use it for your clinic, etc. rchart strives to be: fast, easy to use, and extensible with many plugins!
+- todo: add pictures
+- todo: link download
+- todo: link website
 
-## Values
+### Our Values:
 1. FOSS - Free and Open Source Software
 2. Physcian Centered Design - modern, intuiative, and not focused on billing
-3. Offline First - not hindered by a slow connection
-4. Global Language Support - use rchart no matter what country you are from
+3. Offline First - don't hinder your work with a slow internet connection
+4. Global Language Support - use rchart no matter what language you speak
 
-## Status
+### Status:
 
 # Features
 - todo: list current features
@@ -23,15 +23,17 @@
 - todo: link to documentation
 
 # License
-- todo: explain GPL3
+- todo: explain AGPL3
 
 # Installation
 - todo: easy steps to install from all platforms or from source
 
 # Tech Stack
-- Svelte
-- Tauri
-- PostgreSQL
+- UI: Svelte/SvelteKit
+- CSS: TailwindCSS
+- Tauri/Rust
+- Database: PostgreSQL
+- Testing: 
 
 # Support
 
