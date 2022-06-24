@@ -14,33 +14,33 @@
 
 ### Status:
 
-# Features
+# 1. Features
 - todo: list current features
 - todo: add video here
 
-# Demo, Documentation
+# 2. Demo & Documentation
 - todo: demo
 - todo: link to documentation
 
-# License
+# 3. License
 - todo: explain AGPL3
 
-# Installation
+# 4. Installation
 - todo: easy steps to install from all platforms or from source
 
-# Tech Stack
+# 5. Tech Stack
 - UI: Svelte/SvelteKit
 - CSS: TailwindCSS
 - Tauri/Rust
 - Database: PostgreSQL
 - Testing: 
 
-# Support
+# 6. Support
 
-# Get Involved
+# 7. Get Involved
 - contact and messaging
 
-## code of conduct
+## Code of Conduct
 
 ## Language Support
 
@@ -53,25 +53,14 @@
 - building, running
 - conventions
 
-### Testing
+### Testing:
 - acessibility
 - language
 
-### Pull Requests
+### Pull Requests:
 - default branch
 
-# Roadmap
-
-# FAQ
-
-# Credits
-- core
-- contributors, backers, sponsors
-- dono
-
-
-
-WORKING Roadmap:
+# 8. Roadmap
 1. new patient
 2. patient list
 3. view patient info
@@ -94,3 +83,14 @@ WORKING Roadmap:
 20. patient population data visualization tools
 21. billing
 22. chat
+
+# 9. FAQ
+
+# 10. Credits
+- core
+- contributors, backers, sponsors
+- dono
+
+
+
+
