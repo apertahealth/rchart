@@ -29,11 +29,7 @@
 - todo: easy steps to install from all platforms or from source
 
 # 5. Tech Stack
-- UI: Svelte/SvelteKit
-- CSS: TailwindCSS
-- Tauri/Rust
-- Database: PostgreSQL
-- Testing: 
+We are using Svelte (specifically its SvelteKit metaframework) with TypeScript for the frontend UI. TailwindCSS helps us organize our CSS design system. On the backend, we are using Tauri and Rust connected to a PostgreSQL database.
 
 # 6. Support
 
