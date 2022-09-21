@@ -4,6 +4,19 @@
 
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
+	import { invoke } from "@tauri-apps/api";
+	const test = document.querySelector.bind(document);
+	document.addEventListener("DOMContentLoaded", async function () {
+		const helloEl = test("div.hello")! as HTMLElement;
+		helloEl.addEventListener("pointerup", async function () {
+			const result = await invoke("hello_world") as string;
+			helloEl.textContent = result;
+			setTimeout(function() {
+				helloEl.textContent= "Click again";
+
+			}, 1000);
+		})
+	});
 </script>
 
 <svelte:head>
