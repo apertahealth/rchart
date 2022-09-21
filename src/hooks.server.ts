@@ -26,7 +26,6 @@ import type { Handle } from '@sveltejs/kit';
 // };
 export async function handle({ event, resolve }) {
 	const response = await resolve(event, {
-	  ssr: false,
 	  //transformPageChunk: ({ html }) => html.replace('old', 'new')
 	});
    

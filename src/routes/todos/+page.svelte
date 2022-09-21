@@ -1,28 +1,32 @@
 <script context="module" lang="ts">
-	import { enhance } from '$lib/form';
-	import type { Load } from '@sveltejs/kit';
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-	// see https://kit.svelte.dev/docs#loading
-	export const load: Load = async ({ fetch }) => {
-		const res = await fetch('/todos.json');
+	// import { enhance } from '$lib/form';
+	// import type { Load } from '@sveltejs/kit';
 
-		if (res.ok) {
-			const todos = await res.json();
+	// // see https://kit.svelte.dev/docs#loading
+	// export const load: Load = async ({ fetch }) => {
+	// 	const res = await fetch('/todos.json');
 
-			return {
-				props: { todos }
-			};
-		}
+	// 	if (res.ok) {
+	// 		const todos = await res.json();
 
-		const { message } = await res.json();
+	// 		return {
+	// 			props: { todos }
+	// 		};
+	// 	}
 
-		return {
-			error: new Error(message)
-		};
-	};
+	// 	const { message } = await res.json();
+
+	// 	return {
+	// 		error: new Error(message)
+	// 	};
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 

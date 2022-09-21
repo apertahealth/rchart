@@ -4,7 +4,7 @@
 )]
 
 use std::sync::{Arc, Mutex};
-use Tauri::State;
+use tauri::State;
 
 #[derive(Default)]
 struct Counter(Arc<Mutex<i32>>);

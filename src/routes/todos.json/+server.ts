@@ -1,3 +1,7 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
+
+// @migration task: Check imports
 import { api } from './_api';
 import type { RequestHandler } from '@sveltejs/kit';
 import type { Locals } from '$lib/types';
