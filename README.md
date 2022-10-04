@@ -1,10 +1,15 @@
-# rchart
-a modern, free, extensible EHR for the world
+<h1 align="center">rchart</h1>
+<div align="center">
+    <strong>
+        A modern, free, extensible EHR for the world
+    </strong>
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-
-DEMO | DOWNLOAD | DONATE
-Features | DOCS | FAQ
+    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+    <p>
+        DEMO | DOWNLOAD | DONATE
+        Features | DOCS | FAQ
+    </p>
+</div>
 
 **rchart** is a community developed electronic health record (EHR) that runs on Windows, MacOS, and Linux. As a project, rchart strives to be: fast, intuitive, extensible via community developed plugins!
 ### Values:
