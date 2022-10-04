@@ -1,41 +1,24 @@
+<script context="module" lang="ts">
+	export const prerender = true;
+</script>
+
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
-	import { invoke } from "@tauri-apps/api";
-	const test = document.querySelector.bind(document);
-	document.addEventListener("DOMContentLoaded", async function () {
-		const helloEl = test("div.hello")! as HTMLElement;
-		helloEl.addEventListener("pointerup", async function () {
-			const result = await invoke("hello_world") as string;
-			helloEl.textContent = result;
-			setTimeout(function() {
-				helloEl.textContent= "Click again";
-
-			}, 1000);
-		})
-	});
+	// document.body.insertAdjacentHTML(
+	// 	'afterbegin',
+	// 	'<img class="background" src="/DALL·E generated image.png" alt="" />'
+	// );
 </script>
 
 <svelte:head>
 	<title>Home</title>
+	<meta name="description" content="an ehr for the world" />
 </svelte:head>
 
 <section>
 	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
+		hello peeps!
 	</h1>
-
-	<h2>
-		try editing me @ <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
 </section>
 
 <style>
