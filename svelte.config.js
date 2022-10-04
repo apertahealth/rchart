@@ -9,8 +9,10 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			hydrate: false
+			hydrate: false,
+			fallback: '200.html'
 		}),
+		prerender: { entries: [] }
 	}
 };
 

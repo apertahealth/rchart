@@ -16,9 +16,7 @@
 </svelte:head>
 
 <section>
-	<h1>
-		hello peeps! This is the dev branch!
-	</h1>
+	<h1>hello peeps! This is the dev branch!</h1>
 </section>
 
 <style>
