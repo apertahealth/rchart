@@ -4,21 +4,18 @@
         A modern, free, extensible EHR for the world
     </strong>
 </div>
+<br>
 
-
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 <div align="center">
-    <p>
-        DEMO | DOWNLOAD | DONATE
-        Features | DOCS | FAQ
-    </p>
+    <p>DEMO | DOWNLOAD | DONATE | DOCS</p>
+    <br>
+    <p>Features | License | Installation | Contributing | FAQ | Credits</p>
 </div>
 
-
 **rchart** is a community developed electronic health record (EHR) that runs on Windows, MacOS, and Linux. As a project, rchart strives to be: fast, intuitive, extensible via community developed plugins!
+
 ### Values:
 1. FOSS - Free and Open Source Software
 2. Physcian Centered Design - modern, intuiative, and not focused on billing
@@ -31,10 +28,13 @@
 
 ### Donate:
 future link here?
+
+### Documentation:
+
 ### Website:
 
-### Project Status: alpha stage
-
+### Project Status:
+alpha stage
 - todo: add pictures
 - todo: link download
 - todo: link website
@@ -66,24 +66,23 @@ Missing a feature? Check out our roadmap:
 20. patient population data visualization tools
 21. billing
 22. chat
-# 2. Documentation
-- todo: link to documentation site
 
-# 3. License
+# 2. License
 - todo: explain AGPL3 and how you can use this code
 
-# 4. Installation
+# 3. Installation
+You can download via the following. Alternatively you can download on your specific platform or build the program from source. What is building from source? Explained:
 ## windows:
 ## macOS:
 ## linux:
 ## from source:
 
-# 5. Tech Stack
+# 4. Contributing
+We can use a lot of help. We need those that can code, help support languages, create art, and manage the project!
+
+## Tech Stack
 We are using Svelte (specifically the SvelteKit metaframework) with TypeScript enabled for the frontend UI. TailwindCSS helps us organize our CSS design system. On the backend, we are using Tauri and Rust connected to a SQLite database.
 
-# 6. Support
-
-# 7. Get Involved & Contribute!
 ## Code of Conduct
 
 ## Messaging Platform
@@ -93,7 +92,7 @@ We are using Svelte (specifically the SvelteKit metaframework) with TypeScript e
 
 ## Bugs
 
-## Contributing Guide
+## How to Contribute
 - dependencies
 - building, running
 - conventions
@@ -105,9 +104,9 @@ We are using Svelte (specifically the SvelteKit metaframework) with TypeScript e
 ### Pull Requests: 
 - Please utilize forks and pull requests to contribute. The default development branch is 'dev'
 
-# FAQ
+# 5. FAQ
 
-# Credits
+# 6. Credits
 - Core Team: Logan Nguyen
 - Contributors: none so far!
 - backers, sponsors?
