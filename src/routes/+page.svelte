@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
 	// document.body.insertAdjacentHTML(
 	// 	'afterbegin',
 	// 	'<img class="background" src="/DALL·E generated image.png" alt="" />'
@@ -16,7 +15,7 @@
 </svelte:head>
 
 <section>
-	<h1>hello peeps! This is the dev branch!</h1>
+	<h1 class="text-3xl font-bold">hello peeps! This is the dev branch!</h1>
 </section>
 
 <style>
