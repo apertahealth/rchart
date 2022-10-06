@@ -2,9 +2,9 @@
 	import '../app.css';
 </script>
 
-<body>
+<body class="overscroll-none">
 	<!-- top bar -->
-	<section class="flex flex-row absolute top-0 left-20 h-20 w-screen py-5 px-5 bg-gray-50">
+	<section class="flex flex-row absolute top-0 left-20 h-20 w-full py-5 px-5 bg-gray-50">
 
 		<!-- search box -->
 		<form class="w-full max-w-md">
@@ -158,9 +158,11 @@
 	</main>
 
 	<!-- message center -->
-	<section class="absolute right-0 top-20 pt-11 mt-11 mb-11 w-10 bg-gray-50 shadow-xl rounded-lg">
-		<h1 class="text-lg font-bold">Message Center</h1>
-	</section>
+	<div class="absolute right-0 top-20 h-screen my-5 w-10 bg-gray-50 rounded-lg">
+		<div class="flex">
+			<p class=" bg-red-500 text-left text-lg font-bold -rotate-90">Message Center</p>
+		</div>
+	</div>
 
 	<!-- status bar -->
 	<footer>
