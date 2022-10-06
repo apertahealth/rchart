@@ -2,7 +2,6 @@
 	export const prerender = true;
 	//import SideBar from "./SideBar.svelte";
 </script>
-
 <script lang="ts">
 	// document.body.insertAdjacentHTML(
 	// 	'afterbegin',
@@ -92,17 +91,22 @@
 	</div>
 </section>
 <section>
-	<div class="absolute top-0 left-16 flex justify-between py-3 px-6 bg-gray-50 border-b">
-		<form>
-			<input type="text" name="search" placeholder="Search" autocomplete="off"
-			class="px-3 py-2 font-semibold placeholder-gray-500 text-bloack
-			rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500
-			focus:ring-2">
+	<div class="absolute top-0 left-16 w-screen flex justify-between py-3 px-6 bg-gray-50 border-b">
+		<form class="w-full max-w-md">
+			<div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
+				<i class="fa-solid fa-magnifying-glass w-5 h-5 absolute ml-3 pointer-events-none"></i>
+				<input type="text" name="search" placeholder="Search" autocomplete="off"
+				class="w-full pr-3 pl-10 py-2 font-semibold placeholder-gray-500 text-bloack
+				rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500
+				focus:ring-2">
+			</div>
 		</form>
 	</div>
 </section>
 <section>
-	<button>bell</button><button>graph</button><button>gear</button>
+	<button><i class="fa-solid fa-bell"></i></button>
+	<button><i class="fa-solid fa-chart-simple"></i></button>
+	<button><i class="fa-solid fa-gear"></i></button>
 </section>
 
 <section>
