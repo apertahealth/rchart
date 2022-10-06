@@ -90,8 +90,21 @@
 			</span>
 		</div>
 	</div>
-	<!-- <SideBar /> -->
 </section>
+<section>
+	<div class="absolute top-0 left-16 flex justify-between py-3 px-6 bg-gray-50 border-b">
+		<form>
+			<input type="text" name="search" placeholder="Search" autocomplete="off"
+			class="px-3 py-2 font-semibold placeholder-gray-500 text-bloack
+			rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500
+			focus:ring-2">
+		</form>
+	</div>
+</section>
+<section>
+	<button>bell</button><button>graph</button><button>gear</button>
+</section>
+
 <section>
 	<h1 class="text-3xl, text-green-600">hello peeps! This is the dev branch!</h1>
 </section>
