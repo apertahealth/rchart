@@ -31,21 +31,21 @@
 						<span class="w-4 h-4 rounded-full bg-green-500 absolute bottom-0 left-2"></span>
 					</div>
 				</div>
-				<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
-						shadow-md text-white bg-gray-900 text-xs font-bold
+				<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
+						shadow-md text-white bg-gray-600 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100">
-				go to profile
+				profile
 				</span>
 			</div>
 		
 			<div class="group">
 				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner">
 					<i class="fa-solid fa-calendar-days h-8 w-8"></i>
 				</i>
-				<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
+				<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 							shadow-md text-white bg-gray-900 text-xs font-bold
 							transition-all duration-100 scale-0 origin-left group-hover:scale-100">
 					dashboard
@@ -54,12 +54,12 @@
 
 			<div class="group">
 				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner">
 					<i class="fa-solid fa-list h-8 w-8"></i>
 				</i>
-				<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
+				<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 							shadow-md text-white bg-gray-900 text-xs font-bold
 							transition-all duration-100 scale-0 origin-left group-hover:scale-100">
 					Patient List
@@ -68,12 +68,12 @@
 			
 			<div class="group">
 				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner">
 					<i class="fa-solid fa-people-group h-8 w-8"></i>
 				</i>
-				<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
+				<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 							shadow-md text-white bg-gray-900 text-xs font-bold
 							transition-all duration-100 scale-0 origin-left group-hover:scale-100">
 					Team
@@ -82,12 +82,12 @@
 			
 			<div class="group">
 				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner">
 					<i class="fa-solid fa-book-medical h-8 w-8"></i>
 				</i>
-				<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
+				<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 							shadow-md text-white bg-gray-900 text-xs font-bold
 							transition-all duration-100 scale-0 origin-left group-hover:scale-100">
 					Resources
@@ -96,12 +96,12 @@
 			
 			<div class="group">
 				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner">
 					<i class="fa-solid fa-puzzle-piece h-8 w-8 pl-1 pb-1"></i>
 				</i>
-				<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
+				<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 							shadow-md text-white bg-gray-900 text-xs font-bold
 							transition-all duration-100 scale-0 origin-left group-hover:scale-100">
 					Extensions
@@ -112,8 +112,8 @@
 	</div>
 </section>
 
-<!-- search bar -->
-<section>
+<!-- top bar -->
+<section class="flex-row flex">
 	<div class="absolute top-0 left-20 h-20 w-screen flex justify-between py-3 px-6 bg-gray-50 border-b">
 		<form class="w-full max-w-md">
 			<div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
@@ -125,11 +125,10 @@
 			</div>
 		</form>
 	</div>
-</section>
-<section>
 	<button><i class="fa-solid fa-bell"></i></button>
 	<button><i class="fa-solid fa-chart-simple"></i></button>
 	<button><i class="fa-solid fa-gear"></i></button>
+
 </section>
 
 <!-- page content -->
@@ -139,7 +138,7 @@
 
 <!-- status bar -->
 <section>
-
+ <div class="fixed bottom-0 left-0 bg-blue-600"></div>
 </section>
 
 <style>
