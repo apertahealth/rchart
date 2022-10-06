@@ -16,6 +16,7 @@
 	<title>Home</title>
 	<meta name="description" content="an ehr for the world" />
 </svelte:head>
+
 <section>
 	<div class="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900
 				text-white shadow-lg">
@@ -24,8 +25,12 @@
 				mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600
 				hover:text-white rounded-3xl hover:rounded-xl transition-all
 				duration-300 ease-liner">
-				ME
+				
 			</i>
+			<div class="relative inline-block">
+				<img class="w-16 h-16 rounded-full border-2 border-blue-400" src="./src/lib/img/doctor_headshot.jpg" alt="profile-pic">
+				<span class="w-4 h-4 rounded-full border-2 bg-green-500 border-white absolute bottom-0 right-0"></span>
+			</div>
 			<span class="absolute w-auto p-2 m-2 min-2-max left-14 rounded-md
 						shadow-md text-white bg-gray-900 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100">
