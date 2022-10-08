@@ -1,5 +1,12 @@
 <script lang="ts">
 	import '../app.css';
+	import { invoke } from '@tauri-apps/api/tauri';
+
+	function add_person() {
+		invoke('add_ryan');
+		console.log('in');
+	}
+	//const invoke = window.__TAURI__.invoke;
 </script>
 
 <body class="overscroll-none">
@@ -23,7 +30,7 @@
 
 		<!-- three top buttons -->
 		<div class="fixed right-0 mr-10 pt-2">
-			<button><i class="fa-solid fa-bell h-6 w-6 text-gray-600" /></button>
+			<button onclick="add_person()"><i class="fa-solid fa-bell h-6 w-6 text-gray-600" /></button>
 			<button><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-600" /></button>
 			<button><i class="fa-solid fa-gear h-6 w-6 text-gray-600" /></button>
 		</div>

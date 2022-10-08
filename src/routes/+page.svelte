@@ -2,8 +2,8 @@
 	export const prerender = false;
 </script>
 
-<script lang="ts">
-</script>
+<!-- <script lang="ts"> -->
+<!-- </script> -->
 
 <svelte:head>
 	<title>Home</title>
