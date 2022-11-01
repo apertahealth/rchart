@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="typescript">
 	import '../app.css';
 	import { invoke } from '@tauri-apps/api/tauri';
 
@@ -69,14 +69,16 @@
 
 		<!-- side buttons -->
 		<div class="group">
-			<i
-				class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-				mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
-				hover:text-white rounded-3xl hover:rounded-xl transition-all
-				duration-300 ease-liner"
-			>
-				<i class="fa-solid fa-calendar-days h-8 w-8" />
-			</i>
+			<a href="/">
+				<i
+					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					hover:text-white rounded-3xl hover:rounded-xl transition-all
+					duration-300 ease-liner"
+				>
+					<i class="fa-solid fa-calendar-days h-8 w-8" />
+				</i>
+			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 						shadow-md text-white bg-gray-900 text-xs font-bold
@@ -87,14 +89,16 @@
 		</div>
 
 		<div class="group">
-			<i
-				class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-				mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
-				hover:text-white rounded-3xl hover:rounded-xl transition-all
-				duration-300 ease-liner"
-			>
-				<i class="fa-solid fa-list h-8 w-8" />
-			</i>
+			<a href="/list">
+				<i
+					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					hover:text-white rounded-3xl hover:rounded-xl transition-all
+					duration-300 ease-liner"
+				>
+					<i class="fa-solid fa-list h-8 w-8" />
+				</i>
+			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 						shadow-md text-white bg-gray-900 text-xs font-bold
@@ -105,14 +109,14 @@
 		</div>
 
 		<div class="group">
-			<i
-				class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-				mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
-				hover:text-white rounded-3xl hover:rounded-xl transition-all
-				duration-300 ease-liner"
-			>
-				<i class="fa-solid fa-people-group h-8 w-8" />
-			</i>
+			<a href="/team">
+				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
+						mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+						hover:text-white rounded-3xl hover:rounded-xl transition-all
+						duration-300 ease-liner">
+					<i class="fa-solid fa-people-group h-8 w-8" />
+				</i>
+			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 						shadow-md text-white bg-gray-900 text-xs font-bold
@@ -123,14 +127,16 @@
 		</div>
 
 		<div class="group">
-			<i
-				class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-				mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
-				hover:text-white rounded-3xl hover:rounded-xl transition-all
-				duration-300 ease-liner"
-			>
-				<i class="fa-solid fa-book-medical h-8 w-8" />
-			</i>
+			<a href="/resources">
+				<i
+					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					hover:text-white rounded-3xl hover:rounded-xl transition-all
+					duration-300 ease-liner"
+				>
+					<i class="fa-solid fa-book-medical h-8 w-8" />
+				</i>
+			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 						shadow-md text-white bg-gray-900 text-xs font-bold
@@ -141,14 +147,16 @@
 		</div>
 
 		<div class="group">
-			<i
-				class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-				mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
-				hover:text-white rounded-3xl hover:rounded-xl transition-all
-				duration-300 ease-liner"
-			>
-				<i class="fa-solid fa-puzzle-piece h-8 w-8 pl-1 pb-1" />
-			</i>
+			<a href="/extensions">
+				<i
+					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
+					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					hover:text-white rounded-3xl hover:rounded-xl transition-all
+					duration-300 ease-liner"
+				>
+					<i class="fa-solid fa-puzzle-piece h-8 w-8 pl-1 pb-1" />
+				</i>
+			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
 						shadow-md text-white bg-gray-900 text-xs font-bold
