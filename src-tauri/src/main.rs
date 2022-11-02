@@ -4,8 +4,36 @@
 )]
 
 use std::sync::{Arc, Mutex};
+use serde::{Serialize, Deserialize};
 use tauri::State;
-// use sqlx::{sqlite::Sqlite, SqliteQueryResult, SqlitePool, migrate::MigrateDatabase};
+
+#[derive(Serialize, Deserialize)]
+pub struct Appointment {
+    pub name: String,
+    pub age: u64,
+    pub sex: String,
+    pub time: String
+}
+
+// impl Appointment {
+//   fn Serialize(&self) {
+//     println!("test!");
+//   }
+
+//   fn Deserialize(&self) {
+//     println!("I have no idea what i am doing!");
+//   }
+// }
+// use sqlx::sqlite::{SqliteConnectOptions, SqliteJournalMode};
+// use std::str::FromStr;
+
+
+// let connection = SqliteConnectOptions::from_str("sqlite://sqlite.db")?
+//   .journal_mode(SqliteJournalMode::Wal)
+//   .read_only(true)
+//   .connect().await?;
+
+//, SqliteQueryResult, SqlitePool, migrate::MigrateDatabase};
 // use sqlx::Error as sqERR;
 // use tauri_plugin_sql::TauriSql;
 // use sqlite::Error as sqERR;
@@ -71,7 +99,7 @@ fn main() {
     tauri::Builder::default()
     //.plugin(TauriSql::default())
     .manage(Counter(Default::default()))
-    .invoke_handler(tauri::generate_handler![get_tasks])
+    .invoke_handler(tauri::generate_handler![get_tasks, get_appointments])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
@@ -94,7 +122,38 @@ fn main() {
 // // grab tasks
 #[tauri::command]
 fn get_tasks() -> String {
-  "Hi".to_string()
+  "May".into()
+}
+
+#[tauri::command]
+fn get_appointments() -> Vec<Appointment> {
+  let a1 = Appointment {
+    name: String::from("Logan"),
+    age: 24,
+    sex: String::from("Male"),
+    time: String::from("3:30")
+  };
+  
+  let a2 = Appointment {
+    name: String::from("Clarance"),
+    age: 25,
+    sex: String::from("Male"),
+    time: String::from("4:30")
+  };
+  
+  let a3 = Appointment {
+    name: String::from("Tristy"),
+    age: 44,
+    sex: String::from("Female"),
+    time: String::from("5:30")
+  };
+
+  let mut vec: Vec<Appointment> = Vec::new();
+  vec.push(a1);
+  vec.push(a2);
+  vec.push(a3);
+
+  vec
 }
 
 // async function
