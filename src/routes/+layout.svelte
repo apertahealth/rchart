@@ -1,8 +1,8 @@
-<script lang="typescript">
+<script>
 	import '../app.css';
 	import { invoke } from '@tauri-apps/api/tauri';
 
-	function add_person(): String {
+	function add_person() {
 		invoke('add_ryan');
 		console.log('in');
 		return "hey";
@@ -10,20 +10,20 @@
 	//const invoke = window.__TAURI__.invoke;
 </script>
 
-<body class="overscroll-none">
+<body class="overscroll-none bg-gray-300">
 	<!-- top bar -->
-	<section class="flex flex-row absolute top-0 left-20 h-20 w-full py-5 px-5 bg-gray-50">
+	<section class="flex flex-row absolute top-0 left-20 h-20 w-full py-5 px-5 bg-white">
 
 		<!-- search box -->
 		<form class="w-full max-w-md">
-			<div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
+			<div class="relative flex items-center text-gray-400 focus-within:text-gray-500">
 				<i class="fa-solid fa-magnifying-glass w-5 h-5 absolute ml-3 pointer-events-none" />
 				<input
 					type="text"
 					name="search"
 					placeholder="Search"
 					autocomplete="off"
-					class="w-full pr-3 pl-10 py-2 font-semibold placeholder-gray-500 text-bloack
+					class="w-full pr-3 pl-10 py-2 font-semibold bg-gray-100 placeholder-gray-500 text-block
 							rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500
 							focus:ring-2"/>
 			</div>
@@ -31,15 +31,15 @@
 
 		<!-- three top buttons -->
 		<div class="fixed right-0 mr-10 pt-2">
-			<button on:click="{add_person}"><i class="fa-solid fa-bell h-6 w-6 text-gray-600" /></button>
-			<button><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-600" /></button>
-			<button><i class="fa-solid fa-gear h-6 w-6 text-gray-600" /></button>
+			<button on:click="{add_person}"><i class="fa-solid fa-bell h-6 w-6 text-gray-500" /></button>
+			<button><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></button>
+			<button><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></button>
 		</div>
 
 	</section>
 
 	<!-- side bar -->
-	<section class="fixed top-0 left-0 h-screen w-20 m-0 flex flex-col bg-gray-50 text-white shadow-lg">
+	<section class="fixed top-0 left-0 h-screen w-20 m-0 flex flex-col bg-white">
 		
 		<!-- profile button-->
 		<div class="group">
@@ -72,7 +72,7 @@
 			<a href="/">
 				<i
 					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner"
 				>
@@ -81,7 +81,7 @@
 			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-900 text-xs font-bold
+						shadow-md text-white bg-gray-500 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
 			>
 				dashboard
@@ -92,7 +92,7 @@
 			<a href="/list">
 				<i
 					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner"
 				>
@@ -101,7 +101,7 @@
 			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-900 text-xs font-bold
+						shadow-md text-white bg-gray-500 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
 			>
 				Patient List
@@ -111,7 +111,7 @@
 		<div class="group">
 			<a href="/team">
 				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-						mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+						mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
 						hover:text-white rounded-3xl hover:rounded-xl transition-all
 						duration-300 ease-liner">
 					<i class="fa-solid fa-people-group h-8 w-8" />
@@ -119,7 +119,7 @@
 			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-900 text-xs font-bold
+						shadow-md text-white bg-gray-500 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
 			>
 				Team
@@ -130,7 +130,7 @@
 			<a href="/resources">
 				<i
 					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner"
 				>
@@ -139,7 +139,7 @@
 			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-900 text-xs font-bold
+						shadow-md text-white bg-gray-500 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
 			>
 				Resources
@@ -150,7 +150,7 @@
 			<a href="/extensions">
 				<i
 					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-600 hover:bg-gray-700
+					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
 					hover:text-white rounded-3xl hover:rounded-xl transition-all
 					duration-300 ease-liner"
 				>
@@ -159,7 +159,7 @@
 			</a>
 			<span
 				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-900 text-xs font-bold
+						shadow-md text-white bg-gray-500 text-xs font-bold
 						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
 			>
 				Extensions
@@ -182,7 +182,7 @@
 
 	<!-- status bar -->
 	<footer>
-		<section class="absolute bottom-0 left-0 h-6 w-screen bg-blue-600"></section>
+		<section class="absolute bottom-0 left-0 h-4 w-screen bg-green-600"></section>
 	</footer>
 </body>
 

@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
     export const prerender = false;
 </script>
-
-    <table class="absolute left-20 top-20 right-10 w-max">
+<div class="">
+    <table class="overflow-hidden absolute left-20 top-20 m-5 rounded-lg shadow w-[92%]">
         <thead class="bg-gray-50 border-b-2 border-gray-200">
             <tr>
                 <th class="p-3 text-sm font-semibold tracking-wide text-left">#</th>
@@ -88,3 +88,4 @@
             </tr>
         </tbody>
     </table>
+</div>
