@@ -32,8 +32,8 @@
 		<!-- three top buttons -->
 		<div class="fixed right-0 mr-10 pt-2">
 			<button on:click="{add_person}"><i class="fa-solid fa-bell h-6 w-6 text-gray-500" /></button>
-			<button><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></button>
-			<button><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></button>
+			<button><a href="/stats"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a></button>
+			<button><a href="/options"><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></a></button>
 		</div>
 
 	</section>
