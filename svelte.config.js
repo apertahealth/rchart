@@ -5,12 +5,18 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: [
+		preprocess({
+			postcss: true,
+		}),
+	],
 
 	kit: {
 		adapter: adapter({
-			hydrate: false
+			hydrate: false,
+			fallback: '200.html'
 		}),
+		prerender: { entries: [] }
 	}
 };
 

@@ -1,51 +1,53 @@
 <script context="module" lang="ts">
-	export const prerender = true;
+	export const prerender = false;
 </script>
 
-<script lang="ts">
-	import Counter from '$lib/Counter.svelte';
-	// document.body.insertAdjacentHTML(
-	// 	'afterbegin',
-	// 	'<img class="background" src="/DALL·E generated image.png" alt="" />'
-	// );
-</script>
+<!-- <script lang="ts"> -->
+<!-- </script> -->
 
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="an ehr for the world" />
 </svelte:head>
 
-<section>
-	<h1>
-		hello peeps!
-	</h1>
-</section>
+<!-- page content -->
+<div class="absolute top-20 left-20 right-10 bottom-5 m-5 flex flex-row justify-between gap-5">
+	
+	<!-- appointments -->
+	<div class="bg-gray-50 rounded-lg shadow-xl grow">
+		<div class="ml-5 mt-3">
+			<h1 class="text-left">Today's Appointments</h1>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero suscipit quae magni, nisi autem cupiditate necessitatibus molestias, delectus iste, mollitia debitis repellendus! Modi, eius sit. Rerum praesentium error vero natus!</p>
+		</div>
+	</div>
+	
+	<div class="flex flex-col gap-5 w-2/3">
+
+		<!-- calendar-->
+		<div class="bg-gray-50 rounded-lg shadow-xl h-2/4">
+			<div class="ml-5 mt-3">
+				<h1 class="text-left">Calendar</h1>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero suscipit quae magni, nisi autem cupiditate necessitatibus molestias, delectus iste, mollitia debitis repellendus! Modi, eius sit. Rerum praesentium error vero natus!</p>
+			</div>
+		</div>
+
+		<!-- graph -->
+		<div class="bg-gray-50 rounded-lg shadow-xl grow">
+			<div class="ml-5 mt-3">
+				<h1 class="text-left">Some Graph</h1>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero suscipit quae magni, nisi autem cupiditate necessitatibus molestias, delectus iste, mollitia debitis repellendus! Modi, eius sit. Rerum praesentium error vero natus!</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- tasks -->
+	<div class="bg-gray-50 rounded-lg shadow-xl w-2/3">
+		<div class="ml-5 mt-3">
+			<h1 class="text-left">My Tasks</h1>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero suscipit quae magni, nisi autem cupiditate necessitatibus molestias, delectus iste, mollitia debitis repellendus! Modi, eius sit. Rerum praesentium error vero natus!</p>
+		</div>
+	</div>
+</div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
 </style>
