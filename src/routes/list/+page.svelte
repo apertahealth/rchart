@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-    export const prerender = false;
+    export const prerender = true;
 </script>
 <div class="">
     <table class="overflow-hidden absolute left-20 top-20 m-5 rounded-lg shadow w-[92%]">

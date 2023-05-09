@@ -1,11 +1,16 @@
+// disable the command prompt window that would normally pop up if someone is on windows running a bundled app
 #![cfg_attr(
   all(not(debug_assertions), target_os = "windows"),
   windows_subsystem = "windows"
 )]
 
-use std::sync::{Arc, Mutex};
-use serde::{Serialize, Deserialize};
-use tauri::State;
+//use std::sync::{Arc, Mutex};
+use serde::{Deserialize, Serialize};
+//use tauri::State;
+
+//use sqlx::sqlite::{SqlitePoolOptions, Connect, Pool, SqliteConnection};
+//use rusqlite::{Connection, NO_PARAMS};
+
 
 #[derive(Serialize, Deserialize)]
 pub struct Appointment {
@@ -15,18 +20,17 @@ pub struct Appointment {
     pub time: String
 }
 
-// impl Appointment {
-//   fn Serialize(&self) {
-//     println!("test!");
-//   }
-
+impl Appointment {
+  fn Serialize(&self) {
+    println!("test!");
+  }
+}
 //   fn Deserialize(&self) {
 //     println!("I have no idea what i am doing!");
 //   }
 // }
 // use sqlx::sqlite::{SqliteConnectOptions, SqliteJournalMode};
 // use std::str::FromStr;
-
 
 // let connection = SqliteConnectOptions::from_str("sqlite://sqlite.db")?
 //   .journal_mode(SqliteJournalMode::Wal)
@@ -65,41 +69,78 @@ pub struct Appointment {
 // }
 
 //#[tokio::main]
-#[derive(Default)]
-struct Counter(Arc<Mutex<i32>>);
+//#[derive(Default)]
+//struct Counter(Arc<Mutex<i32>>);
 
-// #[async_std::main]
+//#[async_std::main]
 fn main() {
-  // let db_url = String::from("sqlite://sqlite.db");
+  //let conn = Connection::open("../../data/sqlite.db").unwrap();
+
+  // conn.execute("CREATE TABLE person (
+  //   id INTEGER PRIMARY KEY,
+  //   name TEXT NOT NULL,
+  //   email TEXT NOT NULL
+  //   )", []).unwrap();
+
+  //   let name: String = "Steve Example".to_string();
+  //   let email: String = "steve@example.org".to_string();
+
+  //   conn.execute("INSERT INTO person (name, email) VALUE (?1, ?2)", &[&name, &email]).unwrap();
+
+  // 1. Create connection pool
+  //let mut db_connection = SqliteConnection::connect("sqlite::///data/sqlite.db").await?;
+  // let pool = SqlitePoolOptions::new()
+  //   .max_connections(5)
+  //   .connect("sqlite:/data/sqlite.db").await?;
+
+  // // query
+  // let row: (i64, ) = sqlx::query_as("SELECT $1")
+  //   .bind(150_i64)
+  //   .fetch_one(&pool).await?;
+
+  // assert_eq!(row.0, 150);
+
+  // Ok(())
+
+  //Pool::bulder().max_size(1).build("sqlite:///data.sqlite.db").await?;
+  // let db_url: String = String::from("sqlite://sqlite.db");
   //   if !Sqlite::database_exists(&db_url).await.unwrap_or(false) {
   //       Sqlite::create_database(&db_url).await.unwrap();
-  //       match cretea_schema(&db_url).await {
-  //           Ok(_) => println!("Database created Sucessfully"),
-  //           Err(e) => panic!("{}",e),
+  //       match create_schema(&db_url).await {
+  //           Ok(_) => println!("Database Created Sucessfully"),
+  //           Err(e) => panic!("{}", e),
   //       }
   //   }
-  //   let instances = SqlitePool::connect(&db_url).await.unwrap();
+  //   let instances: = SqlitePool::connect(&db_url).await.unwrap();
   //   let qry ="INSERT INTO settings (description) VALUES($1)";
   //   let result = sqlx::query(&qry).bind("testing").execute(&instances).await;
-    
+
   //   instances.close().await;
 
   //   println!("{:?}", result);
 
   // open a pool object to connect to the database
-  //sqlx::SqlitePool::connect
+  // sqlx::SqlitePool::connect
 
-  // execute a query
-  //sqlx::query(&qry).execute(&pool);
+  // // execute a query
+  // sqlx::query(&qry).execute(&pool);
 
-  //let pool = SqlitePoolOptions::new()
-   // .max_connections(5)
-    //.connect("sqlite://sqlite:password@localhost/test").await?;
-  
-    tauri::Builder::default()
+  // let pool = SqlitePoolOptions::new()
+  //  .max_connections(5)
+  //   .connect("sqlite://sqlite:password@localhost/test").await?;
+
+  //   // open a connection pool
+  //   let conn = SqliteConnection:connect("sqlite::memory:").await?;
+
+  //   // write  a query
+  //   let mut rows = sqlx::query("SELECT * FROM users WHERE email = ?")
+  //     .bind(email)
+  //     .fetch(&mut conn);
+
+  tauri::Builder::default()
     //.plugin(TauriSql::default())
-    .manage(Counter(Default::default()))
-    .invoke_handler(tauri::generate_handler![get_tasks, get_appointments])
+    //.manage(Counter(Default::default()))
+    .invoke_handler(tauri::generate_handler![get_month, greet, get_appointments])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
@@ -115,14 +156,19 @@ fn main() {
 //     Ok(_) => println!("Adding ryan was a success!"),
 //     Err(UserErr::DbErr(ref err)) => println!(":( {:?}", err)
 //   }
-  
+
 //   "Hello World!".to_string()
 // }
 
 // // grab tasks
 #[tauri::command]
-fn get_tasks() -> String {
-  "May".into()
+async fn get_month() -> String {
+  "May".to_string()
+}
+
+#[tauri::command]
+fn greet(name: &str) -> String {
+  format!("hell, {}! You have been greeted from rust!", name)
 }
 
 #[tauri::command]
@@ -131,21 +177,21 @@ fn get_appointments() -> Vec<Appointment> {
     name: String::from("Logan"),
     age: 24,
     sex: String::from("Male"),
-    time: String::from("3:30")
+    time: String::from("3:30"),
   };
-  
+
   let a2 = Appointment {
     name: String::from("Clarance"),
     age: 25,
     sex: String::from("Male"),
-    time: String::from("4:30")
+    time: String::from("4:30"),
   };
-  
+
   let a3 = Appointment {
     name: String::from("Tristy"),
     age: 44,
     sex: String::from("Female"),
-    time: String::from("5:30")
+    time: String::from("5:30"),
   };
 
   let mut vec: Vec<Appointment> = Vec::new();
@@ -159,7 +205,7 @@ fn get_appointments() -> Vec<Appointment> {
 // async function
 // async fn create_schema(db_url:&str) -> Result<SqliteQueryResult, sqlx::Error> {
 //   let pool = SqlitePool::connect(&db_url).await?;
-//   let qry = 
+//   let qry =
 //   "PRAGMA foreign_keys = ON ;
 //   CREATE TABLE IF NOT EXISTS settings
 //       (
@@ -168,7 +214,7 @@ fn get_appointments() -> Vec<Appointment> {
 //           created_on              DATETIME DEFAULT (datetime('now','localtime')),
 //           updated_on              DATETIME DEFAULT (datetime('now','localtime')),
 //           done                    BOOLEAN             NOT NULL DEFAULT 0
-//       );    
+//       );
 //   CREATE TABLE IF NOT EXISTS project
 //       (
 //           project_id                   INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -181,7 +227,7 @@ fn get_appointments() -> Vec<Appointment> {
 //           settings_id                  INTEGER  NOT NULL DEFAULT 1,
 //           FOREIGN KEY (settings_id)    REFERENCES settings (settings_id) ON UPDATE SET NULL ON DELETE SET NULL
 //       );";
-//   let result = sqlx::query(&qry).execute(&pool).await;   
-//   pool.close().await; 
+//   let result = sqlx::query(&qry).execute(&pool).await;
+//   pool.close().await;
 //   return result;
 // }
