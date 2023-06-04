@@ -187,7 +187,24 @@
 
 	<!-- status bar -->
 	<footer>
-		<section class="absolute bottom-0 left-0 h-4 w-screen bg-green-600"></section>
+		<section class="absolute bottom-0 left-0 h-4 w-screen bg-green-600">
+			<div class="flex justify-end">
+				<p class="text-xs font-bold mr-10">Online</p>
+				<p class="text-xs mr-10">|</p>
+
+				<p class="text-xs mr-1">Last Edited @</p>
+				<p class="text-xs font-bold mr-10">5:15:21 PM EST</p>
+				<p class="text-xs mr-10">|</p>
+
+				<p class="text-xs mr-1">Connected to</p>
+				<p class="text-xs font-bold mr-10">Birchwood Health</p>
+				<p class="text-xs mr-10">|</p>
+
+				<p class="text-xs mr-1">Synced to</p>
+				<p class="text-xs font-bold mr-1">20/20</p>
+				<p class="text-xs mr-10">nodes</p>
+			</div>
+		</section>
 	</footer>
 </body>
 

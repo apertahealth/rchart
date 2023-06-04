@@ -19,6 +19,8 @@ serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.0.0-beta.8", features = ["api-all"] }
 rusqlite = { version = "*", features = ["bundled"] }
+diesel = { version = "2.1.0", features = ["postgres"] }
+dotenvy = "0.15"
 #sqlite = { version = "0.26.0" } 
 #sqlx = { version = "0.6.2", features = ["runtime-tokio-native-tls", "sqlite"] }
 #tokio = { version = "1.21.2", feature = [ "full" ] }
@@ -38,3 +40,8 @@ default = [ "custom-protocol" ]
 # this feature is used used for production builds where `devPath` points to the filesystem
 # DO NOT remove this
 custom-protocol = [ "tauri/custom-protocol" ]
+
+[dependencies.tauri-plugin-sql]
+git = "https://github.com/tauri-apps/plugins-workspace"
+branch = "v1"
+features = ["postgres"] # or "sqlite", or "mysql"

@@ -138,7 +138,7 @@ fn main() {
   //     .fetch(&mut conn);
 
   tauri::Builder::default()
-    //.plugin(TauriSql::default())
+    .plugin(tauri_plugin_sql::Builder::default().build())
     //.manage(Counter(Default::default()))
     .invoke_handler(tauri::generate_handler![get_month, greet, get_appointments])
     .run(tauri::generate_context!())
