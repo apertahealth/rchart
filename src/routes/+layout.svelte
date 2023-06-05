@@ -180,8 +180,8 @@
 
 	<!-- message center -->
 	<div class="absolute right-0 top-20 h-screen my-5 w-10 bg-gray-50 rounded-lg">
-		<div class="flex">
-			<p class=" bg-red-500 text-left text-lg font-bold -rotate-90">Message Center</p>
+		<div class="flex flex-col justify-center">
+			<p class="bg-red-500 text-left text-lg font-bold -rotate-90">Message Center</p>
 		</div>
 	</div>
 
