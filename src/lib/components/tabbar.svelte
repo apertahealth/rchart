@@ -1,0 +1,4 @@
+<script>
+    let tabs = [];
+
+</script>
