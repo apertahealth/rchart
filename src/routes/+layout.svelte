@@ -2,6 +2,7 @@
 	import '../app.css';
 	import Tab from '../lib/components/tab.svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
+	import TabStore from '../stores/TabStore.js';
 
 	// a store of the number of active tabs
 	// $storeTabs = [
@@ -10,19 +11,28 @@
 	// 	{ id:2, name: "tab 3"}
 	// ];
 
-	let tabs = [
-		{name: 'tab1const', id: 1},
-		{name: 'tab2const', id: 2}
-	];
-
-	let newtabs = 2;
+	export let tabs = [];
+	TabStore.subscribe(data => {
+		tabs = data;
+	});
 
 	const deleteTab = (id) => {
 		tabs = tabs.filter((tab) => tab.id != id);
+		console.log("tab deleted");
 	}
 
 	const addTab = () => {
-		tabs.push({name: 'newtab', id: newtabs++});
+		// let idd = newtabs++;
+		// let next = {name: "newtab!", id: idd};
+		// TabStore.update(currentTabs => {
+		// 	return [next, ...currentTabs];
+		// });
+		
+		console.log(tabs.length + 1);
+		let next = {name: 'newtab', id: tabs.length + 1};
+		tabs.push(next);
+		console.log(tabs);
+		tabs = tabs;
 	}
 
 	function add_person() {
@@ -62,6 +72,7 @@
 			{#each tabs as tab (tab.id)}
 			<div>
 				<h4>{tab.name}</h4>
+				<h4>{tab.id}</h4>
 
 				<!-- delete tab button -->
 				<button on:click={() => {deleteTab(tab.id)}}>x</button>
@@ -78,7 +89,7 @@
 			<button on:click="{add_person}"><i class="fa-solid fa-bell h-6 w-6 text-gray-500" /></button>
 			
 			<!-- statistics -->
-			<button on:click="{() => {addTab}}"><a href="/"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a></button>
+			<button on:click="{() => {addTab()}}"><a href="/"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a></button>
 			
 			<!-- settings -->
 			<button on:click="{ () => {}}"><a href="/options"><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></a></button>
