@@ -54,6 +54,7 @@ You can download via the following. Alternatively you can download on your speci
 ## Windows
 ## MacOS
 ## Linux
+
 ## Intalling From Source
 
 # 4. Contributing
@@ -84,6 +85,10 @@ Please utilize forks and pull requests to contribute. The default development br
 
 # 5. FAQ
 So far no questions have been asked!
+
+## Developing
+- yarn install
+- yarn dev
 
 # 6. Credits
 - Core Team: Logan Nguyen -- just me so far!

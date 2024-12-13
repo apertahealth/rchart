@@ -1,40 +1,7 @@
 <script>
 	import '../app.css';
-	import Tab from '../lib/components/tab.svelte';
-	import { invoke } from '@tauri-apps/api/tauri';
-	import TabStore from '../stores/TabStore.js';
-
-	// a store of the number of active tabs
-	// $storeTabs = [
-	// 	{ id:0, name: 'tab 1'},
-	// 	{ id:1, name: "tab 2"},
-	// 	{ id:2, name: "tab 3"}
-	// ];
-
-	export let tabs = [];
-	TabStore.subscribe(data => {
-		tabs = data;
-	});
-
-	const deleteTab = (id) => {
-		tabs = tabs.filter((tab) => tab.id != id);
-		console.log("tab deleted");
-	}
-
-	const addTab = () => {
-		// let idd = newtabs++;
-		// let next = {name: "newtab!", id: idd};
-		// TabStore.update(currentTabs => {
-		// 	return [next, ...currentTabs];
-		// });
-		
-		console.log(tabs.length + 1);
-		let next = {name: 'newtab', id: tabs.length + 1};
-		tabs.push(next);
-		console.log(tabs);
-		tabs = tabs;
-	}
-
+	import TabList from '../lib/components/TabList.svelte';
+	import MessageCenter from '../lib/components/MessageCenter.svelte';
 	function add_person() {
 		invoke('add_ryan');
 		console.log('in');
@@ -67,20 +34,8 @@
 			</div>
 		</form>
 
-		<!-- tabs -->
-		<div class="flex flex-row gap-5">
-			{#each tabs as tab (tab.id)}
-			<div>
-				<h4>{tab.name}</h4>
-				<h4>{tab.id}</h4>
-
-				<!-- delete tab button -->
-				<button on:click={() => {deleteTab(tab.id)}}>x</button>
-			</div>
-			{:else}
-			<p>no tabs left!</p>
-			{/each}
-		</div>
+		<!-- the list of tabs -->
+		<TabList></TabList>
 
 		<!-- three top buttons -->
 		<div class="fixed right-0 mr-10 pt-2">
@@ -89,7 +44,7 @@
 			<button on:click="{add_person}"><i class="fa-solid fa-bell h-6 w-6 text-gray-500" /></button>
 			
 			<!-- statistics -->
-			<button on:click="{() => {addTab()}}"><a href="/"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a></button>
+			<button on:click="{() => {}}"><a href="/stats"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a></button>
 			
 			<!-- settings -->
 			<button on:click="{ () => {}}"><a href="/options"><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></a></button>
@@ -233,11 +188,7 @@
 	</main>
 
 	<!-- message center -->
-	<div class="absolute right-0 top-20 h-screen my-5 w-10 bg-gray-50 rounded-lg">
-		<div class="flex flex-col justify-center">
-			<p class="bg-red-500 text-left text-lg font-bold -rotate-90">Message Center</p>
-		</div>
-	</div>
+	<MessageCenter />
 
 	<!-- status bar -->
 	<footer>
