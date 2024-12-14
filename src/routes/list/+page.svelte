@@ -2,10 +2,8 @@
 	export const prerender = true;
 	import TabList from '../../lib/components/TabList.svelte';
 	import { goto } from '$app/navigation';
-
+	import { addTab, setActiveTab, TabStore, ActiveTabStore } from '../../stores/TabStore';
 	let comp;
-	import { invoke } from '@tauri-apps/api/tauri';
-	import TabStore from '../../stores/TabStore.js';
 
 	let data = [
 		{
@@ -21,7 +19,8 @@
 			'Phone Number': '555-555-5555',
 			Email: 'lg@asd.com',
 			'Last Seen': '5/5/23',
-			PCP: 'Dr. Geedee'
+			PCP: 'Dr. Geedee',
+			HealthScore: '1'
 		},
 		{
 			number: '001',
@@ -36,7 +35,8 @@
 			'Phone Number': '555-555-5555',
 			Email: 'lg@asd.com',
 			'Last Seen': '5/5/23',
-			PCP: 'Dr. Geedee'
+			PCP: 'Dr. Geedee',
+			HealthScore: '2'
 		},
 		{
 			number: '001',
@@ -51,7 +51,8 @@
 			'Phone Number': '555-555-5555',
 			Email: 'lg@asd.com',
 			'Last Seen': '5/5/23',
-			PCP: 'Dr. Geedee'
+			PCP: 'Dr. Geedee',
+			HealthScore: '4'
 		},
 		{
 			number: '001',
@@ -66,7 +67,8 @@
 			'Phone Number': '555-555-5555',
 			Email: 'lg@asd.com',
 			'Last Seen': '5/5/23',
-			PCP: 'Dr. Geedee'
+			PCP: 'Dr. Geedee',
+			HealthScore: '3'
 		},
 		{
 			number: '001',
@@ -101,6 +103,16 @@
 			HealthScore: '2'
 		}
 	];
+
+	function onPatientRowClick(patientId: string, patientName: string): void {
+		const newTab = {
+			id: patientId,
+			title: `Patient: ${patientName}`
+		};
+		addTab(newTab);
+		setActiveTab(patientId); // Make sure the clicked tab is active
+		goto(`/patient/${patientId}`); // Navigate to the patient's page
+	}
 </script>
 
 <TabList bind:this={comp} />
@@ -125,16 +137,55 @@
 			</tr>
 		</thead>
 		<tbody class="divide-y divide-gray-100">
-			{#each data as row}
+			{#each data as patient}
 				<tr
-					on:click={() => goto(`/dashboard`)}
+					on:click={() =>
+						onPatientRowClick(
+							patient.number,
+							`${patient.first_name} ${patient.last_name}`
+						)}
 					class="bg-white cursor-pointer hover:bg-gray-100 transition-colors"
 				>
-					{#each Object.values(row) as cell}
-						<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
-							>{cell || '--'}
-						</td>
-					{/each}
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.number}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap" />
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.first_name}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.last_name}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.DOB}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.Age}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.Sex}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.Gender}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.Address}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient['Phone Number']}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.Email}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient['Last Seen']}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.PCP}</td
+					>
+					<td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap"
+						>{patient.HealthScore}</td
+					>
 				</tr>
 			{/each}
 		</tbody>
