@@ -36,11 +36,11 @@
 </script>
 
 <!-- the list of tabs -->
-<div class="flex flex-row gap-5 bg-red-500 mx-5">
+<div class="flex flex-row gap-0 bg-white mt-3">
     {#each tabs as tab (tab.id)}
     <div>
         <!-- a single tab -->
-        <div class="bg-green-300 px-2 inline-flex">
+        <div class="bg-white px-2 pt-1 inline-flex border-r border-black active:rounded-t-lg active:bg-gray-300 active:border-none">
             <h4>{tab.name}</h4>
             <h4>{tab.id}</h4>
 
@@ -54,5 +54,4 @@
 </div>
 
 <style>
-
 </style>

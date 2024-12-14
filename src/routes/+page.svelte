@@ -161,10 +161,10 @@
 </svelte:head>
 
 <!-- page content -->
-<div class="absolute top-20 left-20 right-10 bottom-5 m-5 flex flex-row justify-between gap-5">
+<div class="absolute top-20 left-20 right-10 bottom-5 z-0 my-4 ml-5 mr-3 flex flex-row justify-between gap-5">
 	
 	<!-- appointments -->
-	<div class="bg-gray-50 rounded-lg shadow-xl grow">
+	<div class="bg-gray-50 rounded-lg shadow-xl grow mt-5">
 		<div class="ml-5 mt-3">
 			<h1 class="text-left">Today's Appointments</h1>
 			{#each appointments as appointment}
@@ -173,7 +173,7 @@
 		</div>
 	</div>
 	
-	<div class="flex flex-col gap-5 w-2/3">
+	<div class="flex flex-col gap-5 w-2/3 mt-4">
 
 		<!-- calendar-->
 		<div class="bg-gray-50 rounded-lg shadow-xl h-2/4">
@@ -228,7 +228,7 @@
 	</div>
 
 	<!-- tasks -->
-	<div class="bg-gray-50 rounded-lg shadow-xl w-2/3">
+	<div class="bg-gray-50 rounded-lg shadow-xl w-2/3 mt-4">
 		<div class="ml-5 mt-3">
 			<h1 class="text-left">My Tasks</h1>
 			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero suscipit quae magni, nisi autem cupiditate necessitatibus molestias, delectus iste, mollitia debitis repellendus! Modi, eius sit. Rerum praesentium error vero natus!</p>

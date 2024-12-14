@@ -100,7 +100,7 @@
 </script>
 <TabList bind:this={comp}></TabList>
 <div class="">
-    <table class="overflow-hidden absolute left-20 top-20 m-5 rounded-lg shadow w-[92%]">
+    <table class="overflow-hidden absolute left-20 top-20 mx-5 my-8 rounded-lg shadow w-[92%]">
         <thead class="bg-gray-50 border-b-2 border-gray-200">
             <tr>			
 
@@ -124,7 +124,7 @@
             {#each Object.values(data) as row}
                 <tr on:click="{() => {comp.addTab()}}" class="bg-white">
                     {#each Object.values(row) as cell}
-                        <td class="p-3 text-sm text-left text-gray-700 whitespace-nowrap">{cell}</td>
+                        <td class="px-3 py-5 text-sm text-left text-gray-700 whitespace-nowrap">{cell}</td>
                     {/each}
                 </tr>
             {/each}                

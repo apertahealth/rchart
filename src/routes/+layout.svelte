@@ -1,185 +1,104 @@
-<script>
+<script lang="ts">
 	import '../app.css';
+	import { SideBarStore, setTab } from '../stores/SideBarStore';
+	import { window } from '@tauri-apps/api';
 	import TabList from '../lib/components/TabList.svelte';
 	import MessageCenter from '../lib/components/MessageCenter.svelte';
+	import SidebarTab from '../lib/components/SidebarTab.svelte';
+	import ProfileButton from '$lib/components/ProfileButton.svelte';
+
+	$: $SideBarStore;
+	// let activeTabIndex = "dashboard";
+	// SideBarStore.subscribe((data) => activeTabIndex = data);
+
 	function add_person() {
 		invoke('add_ryan');
 		console.log('in');
-		return "hey";
+		return 'hey';
 	}
 
 	async function test() {
-		await invoke('test', { name: 'logan nguyen'});
+		await invoke('test', { name: 'logan nguyen' });
 	}
 	//TODO: move all the nav bars to their own svelte component files
 	//const invoke = window.__TAURI__.invoke;
+
+	const sideBarTabInfo = [
+		{ label: 'Dashboard', icon: 'fa-calendar-days', path: '/' },
+		{ label: 'Patient List', icon: 'fa-list', path: '/list' },
+		{ label: 'Team', icon: 'fa-people-group', path: '/team' },
+		{ label: 'Resources', icon: 'fa-book-medical', path: '/resources' },
+		{ label: 'Extensions', icon: 'fa-puzzle-piece', path: '/extensions' }
+	];
 </script>
 
 <body class="overscroll-none bg-gray-300">
 	<!-- top bar -->
-	<section class="flex flex-row absolute top-0 left-20 h-20 w-full py-5 px-5 bg-white">
+	<section class="flex flex-row absolute top-0 left-20 h-30 w-full pt-3 px-5 bg-white">
+		<div class="flex flex-col">
+			<!-- search box -->
+			<form class="w-full max-w-md">
+				<div class="relative flex items-center text-gray-400 focus-within:text-gray-500">
+					<i
+						class="fa-solid fa-magnifying-glass w-5 h-5 absolute ml-3 pointer-events-none"
+					/>
+					<input
+						type="text"
+						name="search"
+						placeholder="Search"
+						autocomplete="off"
+						class="w-full pr-3 pl-10 py-2 font-semibold bg-gray-100 placeholder-gray-500 text-block
+								rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500
+								focus:ring-2"
+					/>
+				</div>
+			</form>
 
-		<!-- search box -->
-		<form class="w-full max-w-md">
-			<div class="relative flex items-center text-gray-400 focus-within:text-gray-500">
-				<i class="fa-solid fa-magnifying-glass w-5 h-5 absolute ml-3 pointer-events-none" />
-				<input
-					type="text"
-					name="search"
-					placeholder="Search"
-					autocomplete="off"
-					class="w-full pr-3 pl-10 py-2 font-semibold bg-gray-100 placeholder-gray-500 text-block
-							rounded-2xl border-none ring-2 ring-gray-300 focus:ring-gray-500
-							focus:ring-2"/>
-			</div>
-		</form>
-
-		<!-- the list of tabs -->
-		<TabList></TabList>
-
-		<!-- three top buttons -->
-		<div class="fixed right-0 mr-10 pt-2">
-
-			<!-- notifications -->
-			<button on:click="{add_person}"><i class="fa-solid fa-bell h-6 w-6 text-gray-500" /></button>
-			
-			<!-- statistics -->
-			<button on:click="{() => {}}"><a href="/stats"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a></button>
-			
-			<!-- settings -->
-			<button on:click="{ () => {}}"><a href="/options"><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></a></button>
+			<!-- the list of tabs -->
+			<TabList />
 		</div>
 
+		<!-- three top buttons -->
+		<div class="fixed right-0 mr-10 bg-gray-300 px-3 pt-3 pb-2 rounded-xl flex flex-row gap-3">
+			<!-- notifications -->
+			<button on:click={add_person}
+				><i class="fa-solid fa-bell h-6 w-6 text-gray-500" /></button
+			>
+
+			<!-- statistics -->
+			<button
+				on:click={() => {
+					setTab(-1); // show all inactive sidebar tabs
+				}}
+				><a href="/stats"><i class="fa-solid fa-chart-simple h-6 w-6 text-gray-500" /></a
+				></button
+			>
+
+			<!-- settings -->
+			<button
+				on:click={() => {
+					setTab(-1); // show all inactive sidebar tabs
+				}}
+				><a href="/options"><i class="fa-solid fa-gear h-6 w-6 text-gray-500" /></a></button
+			>
+		</div>
 	</section>
 
 	<!-- side bar -->
-	<section class="fixed top-0 left-0 h-screen w-20 m-0 flex flex-col bg-white">
-		
+	<section class="fixed top-0 left-0 h-screen w-20 m-0 p-0 flex flex-col gap-0  bg-white">
 		<!-- profile button-->
-		<div class="group">
-			<div class="relative flex items-center justify-center mt-3">
-				<img
-					class="w-16 h-16 rounded-full border-2 border-blue-400"
-					src="./src/lib/img/doctor_headshot.jpg"
-					alt="profile-pic"
-				/>
-				<div>
-					<img
-						class="w-8 h-8 rounded-full justify-center absolute bottom-0 right-0"
-						src="./src/lib/img/wsu.png"
-						alt="institution"
-					/>
-					<span class="w-4 h-4 rounded-full bg-green-500 absolute bottom-0 left-2" />
-				</div>
-			</div>
+		<ProfileButton />
 
-			<!-- tooltip -->
-			<span class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-					shadow-md text-white bg-gray-600 text-xs font-bold
-					transition-all duration-100 scale-0 origin-left group-hover:scale-100">
-				profile
-			</span>
-		</div>
-
-		<!-- side buttons -->
-		<div class="group">
-			<a href="/">
-				<i
-					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
-					hover:text-white rounded-3xl hover:rounded-xl transition-all
-					duration-300 ease-liner"
-				>
-					<i class="fa-solid fa-calendar-days h-8 w-8" />
-				</i>
-			</a>
-			<span
-				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-500 text-xs font-bold
-						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
+		<!-- sidebar tabs -->
+		{#each sideBarTabInfo as { label, icon, path }, index}
+			<button
+				on:click={() => {
+					setTab(index);
+				}}
 			>
-				dashboard
-			</span>
-		</div>
-
-		<div class="group">
-			<a href="/list">
-				<i
-					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
-					hover:text-white rounded-3xl hover:rounded-xl transition-all
-					duration-300 ease-liner"
-				>
-					<i class="fa-solid fa-list h-8 w-8" />
-				</i>
-			</a>
-			<span
-				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-500 text-xs font-bold
-						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
-			>
-				Patient List
-			</span>
-		</div>
-
-		<div class="group">
-			<a href="/team">
-				<i class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-						mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
-						hover:text-white rounded-3xl hover:rounded-xl transition-all
-						duration-300 ease-liner">
-					<i class="fa-solid fa-people-group h-8 w-8" />
-				</i>
-			</a>
-			<span
-				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-500 text-xs font-bold
-						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
-			>
-				Team
-			</span>
-		</div>
-
-		<div class="group">
-			<a href="/resources">
-				<i
-					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
-					hover:text-white rounded-3xl hover:rounded-xl transition-all
-					duration-300 ease-liner"
-				>
-					<i class="fa-solid fa-book-medical h-8 w-8" />
-				</i>
-			</a>
-			<span
-				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-500 text-xs font-bold
-						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
-			>
-				Resources
-			</span>
-		</div>
-
-		<div class="group">
-			<a href="/extensions">
-				<i
-					class="relative flex items-center justify-center h-16 w-16 mt-2 mb-2
-					mx-auto shadow-lg bg-gray-200 text-gray-500 hover:bg-gray-500
-					hover:text-white rounded-3xl hover:rounded-xl transition-all
-					duration-300 ease-liner"
-				>
-					<i class="fa-solid fa-puzzle-piece h-8 w-8 pl-1 pb-1" />
-				</i>
-			</a>
-			<span
-				class="absolute w-auto p-2 m-2 min-2-max left-20 rounded-md
-						shadow-md text-white bg-gray-500 text-xs font-bold
-						transition-all duration-100 scale-0 origin-left group-hover:scale-100"
-			>
-				Extensions
-			</span>
-		</div>
-		
+				<SidebarTab {label} {icon} {path} isActive={index == $SideBarStore} />
+			</button>
+		{/each}
 	</section>
 
 	<!-- page contents -->

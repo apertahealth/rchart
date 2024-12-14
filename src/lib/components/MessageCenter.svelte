@@ -13,8 +13,8 @@
 
 <!-- Drawer -->
 <div
-	class="fixed right-0 top-20 h-full my-5 pb-5 bg-gray-100 shadow-sm rounded-lg transition-transform duration-300 flex flex-row"
-	class:translate-x-[80%]={!isOpen}
+	class="fixed right-0 top-20 h-full my-8 pb-5 bg-gray-100 shadow-sm rounded-lg transition-transform duration-300 flex flex-row"
+	class:translate-x-[83%]={!isOpen}
 >
 	<!-- Pull Tab -->
 	<div class="flex flex-col justify-center items-center p-0 m-0 w-0">
