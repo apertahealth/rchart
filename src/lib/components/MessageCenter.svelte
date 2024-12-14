@@ -28,7 +28,6 @@
 
 	<!-- Drawer Contents -->
 	<div class="flex flex-row py-4 px-4 mx-2 h-full ">
-
 		<!-- Messages -->
 		<div class="flex flex-col">
 			<h2 class="text-lg font-semibold">Message Center</h2>

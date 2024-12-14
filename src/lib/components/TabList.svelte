@@ -1,56 +1,52 @@
 <script lang="ts">
-    //import Tab from '/Tab.svelte';
-	import {TabStore, ActiveTabStore, addTab, setActiveTab, removeTab } from '../../stores/TabStore';
+	import {
+		TabStore,
+		ActiveTabStore,
+		addTab,
+		setActiveTab,
+		removeTab
+	} from '../../stores/TabStore';
 
-	// a store of the number of active tabs
-	// $storeTabs = [
-	// 	{ id:0, name: 'tab 1'},
-	// 	{ id:1, name: "tab 2"},
-	// 	{ id:2, name: "tab 3"}
-	// ];
+	let newTabTitle: string = '';
 
-	let tabs: any[] = [];
-    
-	TabStore.subscribe(data => {
-		tabs = data;
-	});
-
-	const deleteTab = (id: number) => {
-		// tabs = tabs.filter((tab) => tab.id != id);
-		// console.log("tab deleted");
+	function handleAddTab() {
+		const newTab = {
+			id: `tab-${Date.now()}`,
+			title: newTabTitle
+		};
+		addTab(newTab);
+		newTabTitle = ''; // reset title after adding
 	}
 
-	// const addTab = () => {
-	// 	// let idd = newtabs++;
-	// 	// let next = {name: "newtab!", id: idd};
-	// 	// TabStore.update(currentTabs => {
-	// 	// 	return [next, ...currentTabs];
-	// 	// });
-		
-	// 	// console.log(tabs.length + 1);
-	// 	// let next = {name: 'newtab', id: tabs.length + 1};
-	// 	// tabs.push(next);
-	// 	// console.log(tabs);
-	// 	// tabs = tabs;
-	// }
+	function handleTabClick(tabId: string) {
+		setActiveTab(tabId);
+	}
+
+	function handleRemoveTab(tabId: string) {
+		removeTab(tabId);
+	}
 </script>
 
 <!-- the list of tabs -->
-<div class="flex flex-row gap-0 bg-white mt-3">
-    {#each tabs as tab (tab.id)}
-    <div>
-        <!-- a single tab -->
-        <div class="bg-white px-2 pt-1 inline-flex border-r border-black active:rounded-t-lg active:bg-gray-300 active:border-none">
-            <h4>{tab.name}</h4>
-            <h4>{tab.id}</h4>
+<div class="flex bg-white mt-3">
+	{#each $TabStore as tab (tab.id)}
+		<div>
+			<!-- a single tab -->
+			<div
+				class="text-gray-500 px-4 pt-1 inline-flex border-r border-t border-l border-gray-400 active:rounded-t-lg active:bg-gray-300 active:border-none"
+			>
+				{tab.title}
 
-            <!-- delete tab button -->
-            <button on:click={() => {deleteTab(tab.id)}}>x</button>
-        </div>
-    </div>
-    {:else}
-    <p>no tabs left!</p>
-    {/each}
+				<!-- delete tab button -->
+				<button
+					class="text-black text-sm -mt-2 -mr-3 ml-2 hover:text-red-700"
+					on:click={() => handleRemoveTab(tab.id)}
+				>
+					X
+				</button>
+			</div>
+		</div>
+	{/each}
 </div>
 
 <style>

@@ -8,10 +8,12 @@ export type Tab = {
 };
 
 // Store to manage tabs
-const TabStore = writable<Tab[]>([]);
+const TabStore = writable<Tab[]>([
+	{ id: `tab-${Date.now()}`, title: 'Dashboard' } // Default tab
+]);
 
 // Active tab store to track the currently active tab
-const ActiveTabStore = writable<string | null>(null);
+const ActiveTabStore = writable<string | null>('tab-');
 
 // Function to add a tab
 function addTab(tab: Tab): void {
@@ -46,4 +48,3 @@ function removeTab(tabId: string): void {
 }
 
 export { TabStore, ActiveTabStore, addTab, setActiveTab, removeTab };
-
