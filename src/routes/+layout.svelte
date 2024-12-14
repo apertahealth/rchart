@@ -19,7 +19,7 @@
 	async function test() {
 		await invoke('test', { name: 'logan nguyen' });
 	}
-	//TODO: move all the nav bars to their own svelte component files
+
 	//const invoke = window.__TAURI__.invoke;
 
 	const sideBarTabInfo = [

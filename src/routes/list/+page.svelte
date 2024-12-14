@@ -127,7 +127,7 @@
 		<tbody class="divide-y divide-gray-100">
 			{#each data as row}
 				<tr
-					on:click={() => goto(`/patient/${row.number}`)}
+					on:click={() => goto(`/dashboard`)}
 					class="bg-white cursor-pointer hover:bg-gray-100 transition-colors"
 				>
 					{#each Object.values(row) as cell}

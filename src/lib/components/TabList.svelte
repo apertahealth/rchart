@@ -1,6 +1,6 @@
-<script>
-    import Tab from './tab.svelte';
-	import TabStore from '../../stores/TabStore.js';
+<script lang="ts">
+    //import Tab from '/Tab.svelte';
+	import {TabStore, ActiveTabStore, addTab, setActiveTab, removeTab } from '../../stores/TabStore';
 
 	// a store of the number of active tabs
 	// $storeTabs = [
@@ -9,30 +9,30 @@
 	// 	{ id:2, name: "tab 3"}
 	// ];
 
-	export let tabs = [];
+	let tabs: any[] = [];
     
 	TabStore.subscribe(data => {
 		tabs = data;
 	});
 
-	const deleteTab = (id) => {
-		tabs = tabs.filter((tab) => tab.id != id);
-		console.log("tab deleted");
+	const deleteTab = (id: number) => {
+		// tabs = tabs.filter((tab) => tab.id != id);
+		// console.log("tab deleted");
 	}
 
-	const addTab = () => {
-		// let idd = newtabs++;
-		// let next = {name: "newtab!", id: idd};
-		// TabStore.update(currentTabs => {
-		// 	return [next, ...currentTabs];
-		// });
+	// const addTab = () => {
+	// 	// let idd = newtabs++;
+	// 	// let next = {name: "newtab!", id: idd};
+	// 	// TabStore.update(currentTabs => {
+	// 	// 	return [next, ...currentTabs];
+	// 	// });
 		
-		console.log(tabs.length + 1);
-		let next = {name: 'newtab', id: tabs.length + 1};
-		tabs.push(next);
-		console.log(tabs);
-		tabs = tabs;
-	}
+	// 	// console.log(tabs.length + 1);
+	// 	// let next = {name: 'newtab', id: tabs.length + 1};
+	// 	// tabs.push(next);
+	// 	// console.log(tabs);
+	// 	// tabs = tabs;
+	// }
 </script>
 
 <!-- the list of tabs -->
