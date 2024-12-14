@@ -1,15 +1,14 @@
 <script lang="ts">
 	import '../app.css';
 	import { SideBarStore, setTab } from '../stores/SideBarStore';
-	import { window } from '@tauri-apps/api';
+
 	import TabList from '../lib/components/TabList.svelte';
 	import MessageCenter from '../lib/components/MessageCenter.svelte';
 	import SidebarTab from '../lib/components/SidebarTab.svelte';
 	import ProfileButton from '$lib/components/ProfileButton.svelte';
+	import StatusBar from '$lib/components/StatusBar.svelte';
 
-	$: $SideBarStore;
-	// let activeTabIndex = "dashboard";
-	// SideBarStore.subscribe((data) => activeTabIndex = data);
+	$: $SideBarStore; // keeps track of the active side bar for styling
 
 	function add_person() {
 		invoke('add_ryan');
@@ -110,26 +109,7 @@
 	<MessageCenter />
 
 	<!-- status bar -->
-	<footer>
-		<section class="absolute bottom-0 left-0 h-4 w-screen bg-green-600">
-			<div class="flex justify-end">
-				<p class="text-xs font-bold mr-10">Online</p>
-				<p class="text-xs mr-10">|</p>
-
-				<p class="text-xs mr-1">Last Edited @</p>
-				<p class="text-xs font-bold mr-10">5:15:21 PM EST</p>
-				<p class="text-xs mr-10">|</p>
-
-				<p class="text-xs mr-1">Connected to</p>
-				<p class="text-xs font-bold mr-10">Birchwood Health</p>
-				<p class="text-xs mr-10">|</p>
-
-				<p class="text-xs mr-1">Synced to</p>
-				<p class="text-xs font-bold mr-1">20/20</p>
-				<p class="text-xs mr-10">nodes</p>
-			</div>
-		</section>
-	</footer>
+	<StatusBar />
 </body>
 
 <style>
@@ -149,13 +129,5 @@
 		max-width: 1024px;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
 	}
 </style>
